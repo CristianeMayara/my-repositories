@@ -30,3 +30,34 @@ export const LIST_REPOSITORIES = gql`
     }
   }
 `;
+
+export const LIST_COMMITS = gql`
+  query Commits($repoName: String!) {
+    repository(name: $repoName, owner: "cristianemayara") {
+      ref(qualifiedName: "master") {
+        target {
+          ... on Commit {
+            id
+            history(first: 25) {
+              pageInfo {
+                hasNextPage
+              }
+              edges {
+                node {
+                  messageHeadline
+                  oid
+                  message
+                  author {
+                    name
+                    email
+                    date
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
