@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.4.1",
+    "add": "^2.0.6",
     "apollo-boost": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.3",
     "graphql": "^14.5.4",
@@ -14,7 +16,8 @@
     "react-infinite-scroller": "^1.2.4",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "yarn": "^1.17.3"
   },
   "scripts": {
     "start": "react-scripts start",

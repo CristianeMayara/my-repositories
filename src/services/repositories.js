@@ -1,9 +1,18 @@
 import gql from 'graphql-tag';
 
 export const LIST_REPOSITORIES = gql`
-  query Repositories($first: Int!, $after: String) {
+  query Repositories(
+    $first: Int!
+    $after: String
+    $orderBy: RepositoryOrderField!
+    $orderDirection: OrderDirection!
+  ) {
     user(login: "cristianemayara") {
-      repositories(first: $first, after: $after) {
+      repositories(
+        first: $first
+        after: $after
+        orderBy: { field: $orderBy, direction: $orderDirection }
+      ) {
         pageInfo {
           hasNextPage
           endCursor

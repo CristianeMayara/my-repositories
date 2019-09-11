@@ -22,7 +22,7 @@ export const Data = styled.div`
     }
   }
   > p {
-    color: #919191;
+    color: #586069;
     font-size: 14px;
     font-weight: 100;
   }
@@ -33,7 +33,7 @@ export const Details = styled.div`
   flex-direction: row;
   margin-top: 20px;
   > p {
-    color: #919191;
+    color: #586069;
     font-size: 12px;
     font-weight: 100;
     margin-right: 20px;
