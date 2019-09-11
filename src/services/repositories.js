@@ -1,11 +1,12 @@
 import gql from 'graphql-tag';
 
 export const LIST_REPOSITORIES = gql`
-  query Repositories {
+  query Repositories($first: Int!, $after: String) {
     user(login: "cristianemayara") {
-      repositories(first: 25) {
+      repositories(first: $first, after: $after) {
         pageInfo {
           hasNextPage
+          endCursor
         }
         nodes {
           id
