@@ -33,25 +33,28 @@ export const LIST_REPOSITORIES = gql`
 `;
 
 export const LIST_COMMITS = gql`
-  query Commits($repoName: String!) {
+  query Commits($repoName: String!, $first: Int!, $after: String) {
     repository(name: $repoName, owner: "cristianemayara") {
       ref(qualifiedName: "master") {
         target {
           ... on Commit {
             id
-            history(first: 25) {
+            history(first: $first, after: $after) {
               pageInfo {
                 hasNextPage
+                endCursor
               }
               edges {
                 node {
                   messageHeadline
                   oid
+                  url
                   message
                   author {
                     name
                     email
                     date
+                    avatarUrl
                   }
                 }
               }

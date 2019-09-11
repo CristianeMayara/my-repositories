@@ -8,7 +8,7 @@ import BaseView from '../../components/BaseView';
 import Divider from '../../components/Divider';
 import Repository from '../../containers/Repository';
 
-const pageSize = 25;
+const pageSize = 20;
 
 const RepositoryList = () => (
   <BaseView>

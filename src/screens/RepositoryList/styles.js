@@ -6,8 +6,7 @@ export const Container = styled.div`
   padding-top: 20px;
   align-items: center;
   flex-direction: column;
-  background-color: #fff;
-  > h1 {
+  & h1 {
     margin-bottom: 20px;
   }
   > hr {
