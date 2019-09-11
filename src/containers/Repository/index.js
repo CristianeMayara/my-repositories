@@ -4,10 +4,10 @@ import 'moment/locale/pt';
 
 import { Container, Data, Details } from './styles';
 
-const Repository = ({ data }) => (
+const Repository = ({ data, history }) => (
   <Container>
     <Data>
-      <h3>{data.name}</h3>
+      <h3 onClick={() => history.push(`/${data.name}/commits`)}>{data.name}</h3>
       <p>{data.description}</p>
     </Data>
     <Details>

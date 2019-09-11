@@ -11,7 +11,7 @@ import SortDropdown from '../../containers/SortDropdown';
 
 const pageSize = 20;
 
-const RepositoryList = () => {
+const RepositoryList = ({ history }) => {
   const [sort, setSort] = useState({
     sortBy: 'CREATED_AT',
     orderDirection: 'DESC'
@@ -89,7 +89,7 @@ const RepositoryList = () => {
                   {repos.map(item => (
                     <div key={item.id}>
                       <Divider />
-                      <Repository data={item} />
+                      <Repository history={history} data={item} />
                     </div>
                   ))}
                 </>

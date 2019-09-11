@@ -8,7 +8,7 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={RepositoryList} />
-        <Route path="/commits" component={CommitList} />
+        <Route path="/:repository/commits" component={CommitList} />
       </Switch>
     </BrowserRouter>
   );
