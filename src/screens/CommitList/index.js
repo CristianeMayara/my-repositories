@@ -3,7 +3,7 @@ import { Query } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import { LIST_COMMITS } from '../../services/repositories';
-import { Container } from './styles';
+import { EmptyContainer, Container } from './styles';
 import BaseView from '../../components/BaseView';
 import Commit from '../../containers/Commit';
 
@@ -25,10 +25,19 @@ const CommitList = ({ match, history }) => {
           >
             {({ data, loading, error, fetchMore }) => {
               if (loading) {
-                return <div />;
+                return (
+                  <EmptyContainer>
+                    <i className="fa fa-spinner fa-pulse" />
+                  </EmptyContainer>
+                );
               }
               if (error || !data) {
-                return <div />;
+                return (
+                  <EmptyContainer>
+                    <h3>Ocorreu um problema ao carregar commits</h3>
+                    <p>Aguarde um momento e tente novamente</p>
+                  </EmptyContainer>
+                );
               }
 
               const commits = data.repository.ref.target.history.edges;

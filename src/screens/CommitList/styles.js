@@ -9,3 +9,12 @@ export const Container = styled.div`
     margin-bottom: 20px;
   }
 `;
+
+export const EmptyContainer = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+`;

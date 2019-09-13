@@ -12,6 +12,15 @@ export const Container = styled.div`
   }
 `;
 
+export const EmptyContainer = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
 export const Title = styled.div`
   width: 100%;
   display: flex;

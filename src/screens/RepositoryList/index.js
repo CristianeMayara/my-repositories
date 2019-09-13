@@ -3,7 +3,7 @@ import { Query } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import { LIST_REPOSITORIES } from '../../services/repositories';
-import { Container, Title } from './styles';
+import { EmptyContainer, Container, Title } from './styles';
 import BaseView from '../../components/BaseView';
 import Divider from '../../components/Divider';
 import Repository from '../../containers/Repository';
@@ -34,10 +34,19 @@ const RepositoryList = ({ history }) => {
         >
           {({ data, loading, error, fetchMore }) => {
             if (loading) {
-              return <div />;
+              return (
+                <EmptyContainer>
+                  <i className="fa fa-spinner fa-pulse" />
+                </EmptyContainer>
+              );
             }
             if (error || !data) {
-              return <div />;
+              return (
+                <EmptyContainer>
+                  <h3>Ocorreu um problema ao carregar repositórios</h3>
+                  <p>Aguarde um momento e tente novamente</p>
+                </EmptyContainer>
+              );
             }
 
             const repos = data.user.repositories.nodes;
