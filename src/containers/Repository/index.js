@@ -2,6 +2,11 @@ import React from 'react';
 import moment from 'moment';
 import 'moment/locale/pt';
 
+import ForkIcon from '../../assets/ForkIcon';
+import LicenseIcon from '../../assets/LicenseIcon';
+import StarIcon from '../../assets/StarIcon';
+import Circle from '../../components/Circle';
+
 import { Container, Data, Details } from './styles';
 
 const Repository = ({ data, history }) => (
@@ -11,9 +16,28 @@ const Repository = ({ data, history }) => (
       <p>{data.description}</p>
     </Data>
     <Details>
-      {data.primaryLanguage && <p>{data.primaryLanguage.name}</p>}
-      {data.licenseInfo && <p>{data.licenseInfo.name}</p>}
-      <p>{data.forkCount} forks</p>
+      {data.primaryLanguage && (
+        <>
+          <Circle color={data.primaryLanguage.color} />
+          <p>{data.primaryLanguage.name}</p>
+        </>
+      )}
+      {data.stargazers && (
+        <>
+          <StarIcon />
+          <p>{data.stargazers.totalCount}</p>
+        </>
+      )}
+      {data.licenseInfo && (
+        <>
+          <LicenseIcon />
+          <p>{data.licenseInfo.name}</p>
+        </>
+      )}
+
+      <ForkIcon />
+      <p>{data.forkCount}</p>
+
       <p>Atualizado {moment(data.updatedAt).fromNow()}</p>
     </Details>
   </Container>

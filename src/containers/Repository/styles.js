@@ -30,6 +30,7 @@ export const Data = styled.div`
 
 export const Details = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: row;
   margin-top: 20px;
   > p {
@@ -37,5 +38,9 @@ export const Details = styled.div`
     font-size: 12px;
     font-weight: 100;
     margin-right: 20px;
+  }
+  > svg,
+  span {
+    margin-right: 3px;
   }
 `;
