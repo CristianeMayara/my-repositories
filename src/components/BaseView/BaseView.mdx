@@ -1,0 +1,41 @@
+---
+name: BaseView
+route: /components/baseview
+---
+
+import { Playground, Props } from 'docz';
+import BaseView from './';
+
+# BaseView
+
+Componente de layout base que engloba os componentes das as páginas da aplicação, definindo margin padrão, dentre outros estilos.
+
+## Utilização
+
+<Playground>
+  <BaseView>
+    <h4>Page</h4>
+    <p>
+      Text text text text text text text text text text text text text text text
+      text text text text text text text text text text text text text text text
+      text text text text text text text text text text text text text.
+    </p>
+  </BaseView>
+</Playground>
+
+## Como implementar
+
+```js
+import React from 'react';
+import { BaseView } from 'components/BaseView';
+
+const BaseViewExample = () => {
+  <BaseView>
+    <div />
+  </BaseView>;
+};
+```
+
+## Propriedades
+
+<Props of={BaseView} />

@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-const BaseView = ({ children }) => <Container>{children}</Container>;
+export const BaseView = ({ children }) => <Container>{children}</Container>;
 
 BaseView.propTypes = {
+  /** Conteúdo a ser exibido na página */
   children: PropTypes.element.isRequired
 };
 
