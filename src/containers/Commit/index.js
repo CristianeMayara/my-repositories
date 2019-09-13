@@ -6,10 +6,15 @@ import { Container, Data, Author } from './styles';
 const Commit = ({ data: { node } }) => (
   <Container>
     <Data>
-      <h3>{node.messageHeadline}</h3>
+      <a href={node.url}>{node.messageHeadline}</a>
     </Data>
     {node.author && (
       <Author>
+        <img
+          alt={node.author.name}
+          src={node.author.avatarUrl}
+          style={{ height: 20, marginRight: 6 }}
+        />
         <bold>{node.author.name}</bold>
         <p>
           realizou este commit em{' '}

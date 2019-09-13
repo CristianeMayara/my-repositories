@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const Data = styled.div`
   display: flex;
   flex-direction: column;
-  > h3 {
+  > a {
     color: #444d56;
     font-size: 16px;
     font-weight: 600;
@@ -30,9 +30,10 @@ export const Data = styled.div`
 
 export const Author = styled.div`
   display: flex;
-  flex-direction: row;
   color: #586069;
   font-size: 12px;
+  align-items: center;
+  flex-direction: row;
   > bold {
     font-weight: 600;
     margin-right: 3px;
