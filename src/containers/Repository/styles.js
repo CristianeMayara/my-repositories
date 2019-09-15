@@ -39,8 +39,7 @@ export const Details = styled.div`
     font-weight: 100;
     margin-right: 20px;
   }
-  > svg,
-  span {
+  > span {
     margin-right: 3px;
   }
 `;

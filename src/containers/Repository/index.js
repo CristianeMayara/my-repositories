@@ -34,7 +34,6 @@ const Repository = ({ data, history }) => (
           <p>{data.licenseInfo.name}</p>
         </>
       )}
-
       <ForkIcon />
       <p>{data.forkCount}</p>
 

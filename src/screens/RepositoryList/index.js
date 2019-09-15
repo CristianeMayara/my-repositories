@@ -95,12 +95,15 @@ const RepositoryList = ({ history }) => {
                     <div style={{ flexGrow: 1 }} />
                     <SortDropdown handleSort={handleSort} />
                   </Title>
-                  {repos.map(item => (
-                    <div key={item.id}>
-                      <Divider />
-                      <Repository history={history} data={item} />
-                    </div>
-                  ))}
+                  {repos.map(
+                    item =>
+                      !item.isPrivate && (
+                        <div key={item.id}>
+                          <Divider />
+                          <Repository history={history} data={item} />
+                        </div>
+                      )
+                  )}
                 </>
               </InfiniteScroll>
             );
