@@ -22,7 +22,7 @@ const RepositoryList = ({ history }) => {
 
   return (
     <BaseView>
-      <Container>
+      <Container data-testid="repository-screen">
         <Query
           query={LIST_REPOSITORIES}
           variables={{
@@ -36,13 +36,16 @@ const RepositoryList = ({ history }) => {
             if (loading) {
               return (
                 <EmptyContainer>
-                  <i className="fa fa-spinner fa-pulse" />
+                  <i
+                    data-testid="loading-icon"
+                    className="fa fa-spinner fa-pulse"
+                  />
                 </EmptyContainer>
               );
             }
             if (error || !data) {
               return (
-                <EmptyContainer>
+                <EmptyContainer data-testid="error-message">
                   <h3>Ocorreu um problema ao carregar repositórios</h3>
                   <p>Aguarde um momento e tente novamente</p>
                 </EmptyContainer>
@@ -90,7 +93,7 @@ const RepositoryList = ({ history }) => {
                 }
               >
                 <>
-                  <Title>
+                  <Title data-testid="list-title">
                     <h1>Repositórios</h1>
                     <div style={{ flexGrow: 1 }} />
                     <SortDropdown handleSort={handleSort} />
@@ -98,7 +101,7 @@ const RepositoryList = ({ history }) => {
                   {repos.map(
                     item =>
                       !item.isPrivate && (
-                        <div key={item.id}>
+                        <div key={item.id} data-testid="repo-item">
                           <Divider />
                           <Repository history={history} data={item} />
                         </div>

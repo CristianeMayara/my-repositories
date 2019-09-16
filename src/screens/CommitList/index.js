@@ -18,7 +18,7 @@ const CommitList = ({ match, history }) => {
   if (repository) {
     return (
       <BaseView>
-        <Container>
+        <Container data-testid="commit-screen">
           <Query
             query={LIST_COMMITS}
             variables={{ repoName: repository, first: pageSize, after: null }}

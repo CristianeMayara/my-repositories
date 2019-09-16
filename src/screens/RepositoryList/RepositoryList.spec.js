@@ -7,12 +7,18 @@ import { repositories } from '../../../__mocks__/queries';
 
 describe('RepositoryList component', () => {
   afterEach(cleanup);
-  it('should render the component', async () => {
-    const component = createComponent();
 
-    await wait(0);
+  it('should load a list of repositories', async () => {
+    const { queryByTestId, getByTestId, getByText } = createComponent();
 
-    expect(component).toBeDefined();
+    await wait(() =>
+      expect(queryByTestId('loading-icon')).not.toBeInTheDocument()
+    );
+
+    expect(getByTestId('list-title')).toBeInTheDocument();
+    expect(getByTestId('repository-screen')).toBeInTheDocument();
+    expect(getByText('my-repositories')).toBeInTheDocument();
+    expect(getByText('movies-app')).toBeInTheDocument();
   });
 });
 

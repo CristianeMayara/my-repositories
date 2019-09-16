@@ -10,7 +10,7 @@ import Circle from '../../components/Circle';
 import { Container, Data, Details } from './styles';
 
 const Repository = ({ data, history }) => (
-  <Container>
+  <Container data-testid="repository-item">
     <Data>
       <h3 onClick={() => history.push(`/${data.name}/commits`)}>{data.name}</h3>
       <p>{data.description}</p>

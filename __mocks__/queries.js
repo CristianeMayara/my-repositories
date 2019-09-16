@@ -3,7 +3,12 @@ import { LIST_REPOSITORIES, LIST_COMMITS } from '../src/services/repositories';
 const repositories = {
   request: {
     query: LIST_REPOSITORIES,
-    variables: { first: 20, orderBy: 'CREATED_AT', orderDirection: 'DESC' }
+    variables: {
+      first: 20,
+      after: null,
+      orderBy: 'CREATED_AT',
+      orderDirection: 'DESC'
+    }
   },
   result: {
     data: {
@@ -19,7 +24,7 @@ const repositories = {
               id: 'MDEwOlJlcG9zaXRvcnkyMDc0ODYxMDY=',
               name: 'my-repositories',
               description: null,
-              isPrivate: true,
+              isPrivate: false,
               forkCount: 0,
               updatedAt: '2019-09-11T06:53:35Z',
               url: 'https://github.com/CristianeMayara/my-repositories',
@@ -37,7 +42,7 @@ const repositories = {
               name: 'movies-app',
               description:
                 '🍿🍿 A mobile app developed using React Native and Redux.',
-              isPrivate: true,
+              isPrivate: false,
               forkCount: 0,
               updatedAt: '2019-08-24T16:37:06Z',
               url: 'https://github.com/CristianeMayara/movies-app',
