@@ -5,6 +5,7 @@ export default {
     'Página inicial',
     'BaseView',
     'Divider',
+    'ErrorBoundary',
     {
       name: 'GitHub',
       href: 'https://github.com/CristianeMayara/my-repositories'

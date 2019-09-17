@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import RepositoryList from './screens/RepositoryList';
-import CommitList from './screens/CommitList';
+import ErrorBoundary from './components/ErrorBoundary';
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={RepositoryList} />
-        <Route path="/:repository/commits" component={CommitList} />
-      </Switch>
-    </BrowserRouter>
-  );
-};
+const RepositoryList = lazy(() => import('./screens/RepositoryList'));
+const CommitList = lazy(() => import('./screens/CommitList'));
+
+const App = () => (
+  <BrowserRouter>
+    <ErrorBoundary>
+      <Suspense fallback={<div data-testid="suspense" />}>
+        <Switch>
+          <Route exact path="/" component={RepositoryList} />
+          <Route path="/:repository/commits" component={CommitList} />
+        </Switch>
+      </Suspense>
+    </ErrorBoundary>
+  </BrowserRouter>
+);
 
 export default App;

@@ -93,7 +93,7 @@ const RepositoryList = ({ history }) => {
                 }
               >
                 <>
-                  <Title data-testid="list-title">
+                  <Title data-testid="repository-list-title">
                     <h1>Repositórios</h1>
                     <div style={{ flexGrow: 1 }} />
                     <SortDropdown handleSort={handleSort} />

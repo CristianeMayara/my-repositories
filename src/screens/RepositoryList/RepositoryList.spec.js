@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { MockedProvider } from '@apollo/react-testing';
 import {
   render,
@@ -19,13 +19,10 @@ describe('RepositoryList component', () => {
 
   describe('when create the component', () => {
     it('should load a list of repositories', async () => {
-      const { queryByTestId, getByTestId, getByText } = createComponent();
+      const { queryByTestId, getByText } = createComponent();
 
-      await wait(() =>
-        expect(queryByTestId('loading-icon')).not.toBeInTheDocument()
-      );
+      await waitForElement(() => queryByTestId('repository-list-title'));
 
-      expect(getByTestId('list-title')).toBeInTheDocument();
       expect(getByText('my-repositories')).toBeInTheDocument();
     });
   });
@@ -34,7 +31,7 @@ describe('RepositoryList component', () => {
     it('should sort the list of repositories', async () => {
       const { queryByTestId, getByTestId, getByText } = createComponent();
 
-      await waitForElement(() => queryByTestId('list-title'));
+      await waitForElement(() => queryByTestId('repository-list-title'));
 
       fireEvent.click(getByText(/Mais estrelas/i));
 
@@ -42,7 +39,7 @@ describe('RepositoryList component', () => {
         expect(queryByTestId('loading-icon')).not.toBeInTheDocument()
       );
 
-      expect(getByTestId('list-title')).toBeInTheDocument();
+      expect(getByTestId('repository-list-title')).toBeInTheDocument();
       expect(getByText('my-repositories')).toBeInTheDocument();
     });
   });
@@ -56,7 +53,9 @@ function createComponent(props = {}) {
       mocks={[repositories, sortedRepositories, commits]}
       addTypename={false}
     >
-      <App {...defaultProps} />
+      <Suspense fallback={<div data-testid="suspense" />}>
+        <App {...defaultProps} />
+      </Suspense>
     </MockedProvider>
   );
 }

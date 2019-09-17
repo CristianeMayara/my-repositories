@@ -10,6 +10,12 @@ Documentação: http://my-repositories-doc.surge.sh/
 
 Aplicação: https://my-repositories.herokuapp.com/
 
+<p style="display:flex; flex-direction:row">
+  <img src="https://github.com/CristianeMayara/my-repositories/blob/master/docs/mobile-my-repositories.png" height="325px" />
+
+  <img src="https://github.com/CristianeMayara/my-repositories/blob/master/docs/ipad-my-repositories.png" height="405px" />
+</p>
+
 ## Como iniciar o projeto
 
 - Clonar o repositório

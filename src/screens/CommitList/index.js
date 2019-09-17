@@ -9,11 +9,11 @@ import Commit from '../../containers/Commit';
 
 const pageSize = 20;
 
-const CommitList = ({ match, history }) => {
+const CommitList = ({ match }) => {
   const [repository, setRepository] = useState(null);
   useEffect(() => {
     setRepository(match.params && match.params.repository);
-  }, [match, history]);
+  }, [match]);
 
   if (repository) {
     return (

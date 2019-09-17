@@ -1,0 +1,36 @@
+---
+name: ErrorBoundary
+route: /components/errorBoundary
+---
+
+import { Playground, Props } from 'docz';
+import ErrorBoundary from './';
+
+# ErrorBoundary
+
+Componente que captura erros nos componentes abaixo dele na árvores. Pode ser utilizado como um componente React, envolvendo um outro componente para protegê-lo de quebrar o restante da aplicação.
+
+## Utilização
+
+<Playground>
+  <ErrorBoundary>
+    <p>My component involved by ErrorBoundary</p>
+  </ErrorBoundary>
+</Playground>
+
+## Como implementar
+
+```js
+import React from 'react';
+import { ErrorBoundary } from 'components/ErrorBoundary';
+
+const ErrorBoundaryExample = () => {
+  <ErrorBoundary>
+    <p>My component involved by ErrorBoundary</p>
+  </ErrorBoundary>;
+};
+```
+
+## Propriedades
+
+Não possui propriedades.
