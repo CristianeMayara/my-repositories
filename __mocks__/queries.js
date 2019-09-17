@@ -44,6 +44,50 @@ const repositories = {
   }
 };
 
+const sortedRepositories = {
+  request: {
+    query: LIST_REPOSITORIES,
+    variables: {
+      first: 20,
+      after: null,
+      orderBy: 'STARGAZERS',
+      orderDirection: 'DESC'
+    }
+  },
+  result: {
+    data: {
+      user: {
+        repositories: {
+          pageInfo: {
+            hasNextPage: true,
+            endCursor:
+              'Y3Vyc29yOnYyOpK5MjAxOS0wMy0yNFQxNTozNjo1OS0wMzowMM4Kk7uL'
+          },
+          nodes: [
+            {
+              id: 'MDEwOlJlcG9zaXRvcnkyMDc0ODYxMDY=',
+              name: 'my-repositories',
+              description: null,
+              isPrivate: false,
+              forkCount: 0,
+              updatedAt: '2019-09-11T06:53:35Z',
+              url: 'https://github.com/CristianeMayara/my-repositories',
+              primaryLanguage: {
+                name: 'JavaScript',
+                color: '#f1e05a'
+              },
+              licenseInfo: null,
+              stargazers: {
+                totalCount: 0
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+};
+
 const commits = {
   request: {
     query: LIST_COMMITS,
@@ -103,4 +147,4 @@ const commits = {
   }
 };
 
-export { repositories, commits };
+export { repositories, sortedRepositories, commits };
