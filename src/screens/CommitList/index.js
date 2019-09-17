@@ -27,7 +27,10 @@ const CommitList = ({ match, history }) => {
               if (loading) {
                 return (
                   <EmptyContainer>
-                    <i className="fa fa-spinner fa-pulse" />
+                    <i
+                      data-testid="loading-icon"
+                      className="fa fa-spinner fa-pulse"
+                    />
                   </EmptyContainer>
                 );
               }
@@ -51,7 +54,7 @@ const CommitList = ({ match, history }) => {
                   loadMore={pageNumber =>
                     fetchMore({
                       variables: {
-                        repoName: 'marvel-app',
+                        repoName: repository,
                         first: pageSize,
                         after: pageInfo.endCursor,
                         pageNumber
@@ -88,7 +91,7 @@ const CommitList = ({ match, history }) => {
                   }
                 >
                   <>
-                    <h1>Commits</h1>
+                    <h1 data-testid="commit-list-title">Commits</h1>
                     {commits.map(item => (
                       <Commit key={item.id} data={item} />
                     ))}

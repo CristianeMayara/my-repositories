@@ -1,30 +1,51 @@
 import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
-import { render } from '@testing-library/react';
+import {
+  render,
+  cleanup,
+  fireEvent,
+  waitForElement
+} from '@testing-library/react';
 import wait from 'waait';
-import CommitList from '.';
-import { commits } from '../../../__mocks__/queries';
+import App from '../../App';
+import { repositories, commits } from '../../../__mocks__/queries';
 
 describe('CommitList component', () => {
-  it('should render the component', async () => {
-    const component = createComponent();
+  afterEach(cleanup);
 
-    await wait(0);
+  describe('when click on a repository item', () => {
+    it('should redirect to repository`screen and load data', async () => {
+      const {
+        queryByTestId,
+        queryByText,
+        getByTestId,
+        getByText
+      } = createComponent();
 
-    expect(component).toBeDefined();
+      await waitForElement(() => queryByText('my-repositories'));
+
+      fireEvent.click(getByTestId('repository-title'));
+
+      expect(queryByTestId('repository-screen')).not.toBeInTheDocument();
+      expect(getByTestId('commit-screen')).toBeInTheDocument();
+
+      await wait(() =>
+        expect(queryByTestId('loading-icon')).not.toBeInTheDocument()
+      );
+
+      expect(getByTestId('commit-list-title')).toBeInTheDocument();
+      expect(getByText('Adding page url to the app')).toBeInTheDocument();
+      expect(getByText('Adding gif on readme file')).toBeInTheDocument();
+    });
   });
 });
 
 function createComponent(props = {}) {
-  const defaultProps = {
-    history: {},
-    match: {},
-    ...props
-  };
+  const defaultProps = { ...props };
 
   return render(
-    <MockedProvider mocks={[commits]} addTypename={false}>
-      <CommitList {...defaultProps} />
+    <MockedProvider mocks={[repositories, commits]} addTypename={false}>
+      <App {...defaultProps} />
     </MockedProvider>
   );
 }

@@ -36,24 +36,6 @@ const repositories = {
               stargazers: {
                 totalCount: 0
               }
-            },
-            {
-              id: 'MDEwOlJlcG9zaXRvcnkyMDQxMTY3NDk=',
-              name: 'movies-app',
-              description:
-                '🍿🍿 A mobile app developed using React Native and Redux.',
-              isPrivate: false,
-              forkCount: 0,
-              updatedAt: '2019-08-24T16:37:06Z',
-              url: 'https://github.com/CristianeMayara/movies-app',
-              primaryLanguage: {
-                name: 'JavaScript',
-                color: '#f1e05a'
-              },
-              licenseInfo: null,
-              stargazers: {
-                totalCount: 0
-              }
             }
           ]
         }
@@ -65,7 +47,7 @@ const repositories = {
 const commits = {
   request: {
     query: LIST_COMMITS,
-    variables: { first: 20, repoName: 'marvel-app' }
+    variables: { first: 20, after: null, repoName: 'my-repositories' }
   },
   result: {
     data: {

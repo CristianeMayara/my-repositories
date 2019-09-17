@@ -6,7 +6,9 @@ import { Container, Data, Author } from './styles';
 const Commit = ({ data: { node } }) => (
   <Container>
     <Data>
-      <a href={node.url}>{node.messageHeadline}</a>
+      <a data-testid="commit-title" href={node.url}>
+        {node.messageHeadline}
+      </a>
     </Data>
     {node.author && (
       <Author>
